@@ -66,6 +66,6 @@ object MapReduce2:
     FileInputFormat.setInputPaths(conf, new Path(inputPath))
     FileOutputFormat.setOutputPath(conf, new Path(outputPath + "/mapreduce2"))
     JobClient.runJob(conf)
-    MapReduce2final.runMapReduce2final(outputPath + "\\mapreduce2\\part-00000",outputPath)
+    MapReduce2final.runMapReduce2final(outputPath + "/mapreduce2/part-00000",outputPath)
 
 

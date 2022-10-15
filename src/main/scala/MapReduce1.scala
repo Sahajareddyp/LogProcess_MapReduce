@@ -38,29 +38,31 @@ object MapReduce1:
       val endtime=conf.getString("randomLogGenerator.endtime")//"22:07:00"
       // Defining time as String and parsing it as Date format
       val formatter : DateFormat = new SimpleDateFormat("hh:mm:ss");
-      // you can change format of date
-      val  date: Date = formatter.parse(time1);
-      //val timeStampDate: Timestamp  = new Timestamp(date.getTime())
-      //parsing String into Date
-      val start: Date= formatter.parse(starttime)
-      val end: Date =formatter.parse(endtime)
-      logger.info("The computed CSV file that shows the distribution of different types of messages across predefined time intervals")
-      if(date.after(start) && date.before(end))
-      {
-        // Compiling for regex pattern
-        val pattern = Pattern.compile(conf.getString("randomLogGenerator.MapReduce1MsgTyp"))
-        val matcher = pattern.matcher(line)
-        logger.info("Matching the string instances of the designated regex pattern for the above log message types")
-        val pattern1 = Pattern.compile(conf.getString("randomLogGenerator.Pattern"))
-        // Matching the regex pattern to the pattern given in application.conf
-        val matcher1 = pattern1.matcher(line)
-        if (matcher.find() && matcher1.find())
+      // checking if string starts with time format
+      if(Pattern.compile("^(\\d\\d:\\d\\d:\\d\\d)").matcher(value.toString.substring(0,8)).find())
         {
-          // to find the
-          word.set(time1.substring(0,5)+":00 "+matcher.group()) //choosing the time format to a particular digit count
-          output.collect(word, one)
+          val date: Date = formatter.parse(time1);
+          //val timeStampDate: Timestamp  = new Timestamp(date.getTime())
+          //parsing String into Date
+          val start: Date = formatter.parse(starttime)
+          val end: Date = formatter.parse(endtime)
+          logger.info("The computed CSV file that shows the distribution of different types of messages across predefined time intervals")
+          if (date.after(start) && date.before(end)) {
+            // Compiling for regex pattern
+            val pattern = Pattern.compile(conf.getString("randomLogGenerator.MapReduce1MsgTyp"))
+            val matcher = pattern.matcher(line)
+            logger.info("Matching the string instances of the designated regex pattern for the above log message types")
+            val pattern1 = Pattern.compile(conf.getString("randomLogGenerator.Pattern"))
+            // Matching the regex pattern to the pattern given in application.conf
+            val matcher1 = pattern1.matcher(line)
+            if (matcher.find() && matcher1.find()) {
+              // to find the
+              word.set(time1.substring(0, 5) + ":00 " + matcher.group()) //choosing the time format to a particular digit count
+              output.collect(word, one)
+            }
+          }
         }
-      }
+
 
   class Reduce extends MapReduceBase with Reducer[Text, IntWritable, Text, IntWritable]:
     override def reduce(key: Text, values: util.Iterator[IntWritable], output: OutputCollector[Text, IntWritable], reporter: Reporter): Unit =
