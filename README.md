@@ -49,8 +49,7 @@ number of times it appeared.
 In the first part, start time and end time variables are defined to a particular time interval that are to be taken from application.conf file.
 The Mapper will check whether the log message 'ERROR' is present in regex pattern defined and matches it against the particular time interval. 
 Mapper sends the message type as Key and 1 as value to the Reducer.
-The Reducer will add all 1s and gives the time interval against which the log message 'ERROR' is present and the
-number of times it appeared.
+The Reducer will add all 1s and gives the ERROR messages appearing in the specified time interval.
 - The first column represents the time intervals.
 - The second column represents the log message type 'ERROR'.
 - The third column represents the number of times log events have appeared in the logs for 'ERROR' message type with the given pattern in that time duration.
@@ -61,7 +60,7 @@ number of times it appeared.
 #### Job2 (Final)
 
 In the final part, the above output is taken as input.
-The Key and the Value are swapped.
+The Key and the Value are swapped as Mapper sorts the Key in ascending order and the value is multiplied by (-1). The Reducer will multiply by (-1) and swap to their original position.
 
 ![img_9.png](Images/img_9.png)
 
@@ -162,7 +161,7 @@ Clone the Repository. In terminal, navigate to the repository and run the below 
 
 ### YouTube Link
 
-- YouTube link of the video that documents all steps of the deployment and execution :
+- YouTube link of the video that documents all steps of the deployment and execution : [YouTube Link](https://youtu.be/l_eF-6wzsCY)
 
 ### References
 
