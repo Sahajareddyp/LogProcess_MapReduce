@@ -1,0 +1,4 @@
+[0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\rsaha\CCprojects\LogFileGenerator\src\main\resources\application.conf,C:\Users\rsaha\CCprojects\LogFileGenerator\target\scala-3.2.0\classes\application.conf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\rsaha\CCprojects\LogFileGenerator\src\main\resources\logback-test.xml,C:\Users\rsaha\CCprojects\LogFileGenerator\target\scala-3.2.0\classes\logback-test.xml)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(C:\Users\rsaha\CCprojects\LogFileGenerator\src\main\resources\logback.xml,C:\Users\rsaha\CCprojects\LogFileGenerator\target\scala-3.2.0\classes\logback.xml)[0m

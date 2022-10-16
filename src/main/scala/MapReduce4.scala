@@ -25,7 +25,7 @@ object MapReduce4:
       val line: String = value.toString
       // Create a pattern variable for regex in log file
       val pattern = Pattern.compile(conf.getString("randomLogGenerator.MapReduce4MsgTyp"))
-      //Create a matcher variable to match the regex given above
+      //Create a matcher variable to match the regex given
       val matcher= pattern.matcher(line)
       // Create another variable to detect the instances of the designated regex pattern given in application.conf file in the particular log file
      // val pattern1 = Pattern.compile("([a-c][e-g][0-3]|[A-Z][5-9][f-w]){5,15}")

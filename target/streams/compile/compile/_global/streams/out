@@ -1,0 +1,5 @@
+[0m[[0m[33mwarn[0m] [0m[0m[33m[33m-- Unchecked Warning: C:\Users\rsaha\CCprojects\LogFileGenerator\src\main\scala\HelperUtils\Parameters.scala:85:11 [0m[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m85 |[0m      [33mcase[0m v: Tuple2[Double, Double] => logMsgRange(pName)[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m[33m   |[0m           ^[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m   |[0m         the type test for (Double, Double) cannot be checked at runtime[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
